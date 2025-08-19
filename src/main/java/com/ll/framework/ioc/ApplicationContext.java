@@ -49,7 +49,7 @@ public class ApplicationContext {
             }
         }
 
-
+        beans.put("testBaseJavaTimeModule", new JavaTimeModule());
     }
 
     public void init() {
