@@ -1,5 +1,6 @@
 package com.ll.framework.ioc;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.ll.framework.ioc.annotations.Repository;
 import com.ll.framework.ioc.annotations.Service;
@@ -50,6 +51,10 @@ public class ApplicationContext {
         }
 
         beans.put("testBaseJavaTimeModule", new JavaTimeModule());
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(genBean("testBaseJavaTimeModule"));
+        beans.put("testBaseObjectMapper", objectMapper);
     }
 
     public void init() {
